@@ -20,11 +20,11 @@ const Register = ({navigation}) => {
     const register=()=>{
         auth.createUserWithEmailAndPassword(email, password)
         .then(authUser=>{
-             authUser.user.update({
+             authUser.user.updateProfile({
                  displayName: name,
                  photoURL: imageUrl||"https://cdn.pixabay.com/photo/2016/08/31/11/54/user-1633249__340.png"
              })
-        }).catch((error)=>alert("Error accured"))
+        }).catch((error)=>alert(error.message))
     };
 
 

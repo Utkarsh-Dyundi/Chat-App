@@ -18,7 +18,8 @@ const Login = ({navigation}) => {
           return unsubscribe;
      },[])
     const signIn=()=>{
-
+        auth.signInWithEmailAndPassword(email,password)
+        .catch((error) => alert(error));
     }
     return (
       
@@ -32,7 +33,9 @@ const Login = ({navigation}) => {
             />
             <View style={styles.inputContainer}>
                  <Input placeholder="Email" autoFocus type="email" value={email} onChangeText={(text)=>setEmail(text)} />
-                 <Input placeholder="Password" secureTextEntry autoFocus type="password" value={password} onChangeText={(text)=>setPassword(text)}/>
+                 <Input placeholder="Password" secureTextEntry autoFocus type="password" value={password} onChangeText={(text)=>setPassword(text)}
+                     onSubmitEditing={signIn}
+                 />
             </View>
             <Button containerStyle={styles.button} onPress={signIn} title="Login" />
             <Button
