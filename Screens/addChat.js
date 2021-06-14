@@ -34,6 +34,7 @@ const AddChat = ({navigation}) => {
               }
             />
             <Button 
+            disabled={!input}
             onPress={createChat}
             title="Start new Chat"
             />
@@ -45,7 +46,7 @@ export default AddChat
 
 const styles = StyleSheet.create({
     container:{
-         backgroundColor:"White",
+         backgroundColor:"white",
          padding:40,
          height:"100%"
     }

@@ -2,7 +2,9 @@ import React, {useState, useEffect,useLayoutEffect} from 'react'
 import { StyleSheet,  View, KeyboardAvoidingView } from 'react-native'
 import { Button, Input, Image,Text, } from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar'
-import { auth } from '../firebase'
+import { auth,db } from '../firebase'
+import { Platform } from 'react-native';
+
 const Register = ({navigation}) => {
 
     const [name, setName] = useState("")
@@ -29,7 +31,7 @@ const Register = ({navigation}) => {
 
 
     return (
-        <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <KeyboardAvoidingView behavior={Platform.OS ==="ios"? "padding" :"height"} style={styles.container}>
         <StatusBar style="light" />
         <Text h3 style={{marginBottom:50}}>
             Create your account

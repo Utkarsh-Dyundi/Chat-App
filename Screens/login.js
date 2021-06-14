@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, KeyboardAvoidingView } from 'react-native'
 import { Button, Input, Image } from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar'
 import { auth } from '../firebase'
+import { Platform } from 'react-native';
 
 const Login = ({navigation}) => {
     
@@ -23,11 +24,11 @@ const Login = ({navigation}) => {
     }
     return (
       
-        <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <KeyboardAvoidingView behavior={Platform.OS ==="ios"? "padding" :"height"} style={styles.container}>
           <StatusBar style="light" />
             <Image 
                 source={{
-                    uri:"https://cdn.pixabay.com/photo/2021/05/22/11/38/whatsapp-6273368__340.png"
+                    uri:"https://cdn.pixabay.com/photo/2017/06/10/07/21/chat-2389223__340.png"
                 }}
                 style={{height:100, width:100}}
             />
